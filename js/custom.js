@@ -40,8 +40,8 @@ randomizeButton.addEventListener('click', function(){
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.tooltipped');
     var options = {
-        enterDelay: 400,
-        outDuration: 150
+      enterDelay: 400,
+      outDuration: 150
     };
     var instances = M.Tooltip.init(elems, options);
   });

@@ -1,5 +1,5 @@
 body {
-    font-family: monospace;
+    font-family: "Roboto mono", monospace;
     }
 
 /* Text area only visually hidden */
@@ -20,8 +20,7 @@ textarea {
 }
 
 .nav-wrapper a {
-    font-family: monospace;
-    color: #455a64;
+    color: #212121;
 }
 
 .color-grid {
