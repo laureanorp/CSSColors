@@ -29,6 +29,10 @@ textarea {
     cursor:pointer;
 }
 
+.nav-wrapper i{
+    color: #212121;
+}
+
 /* Hide color code */
 .color-grid p:nth-child(1) {
     display: none;

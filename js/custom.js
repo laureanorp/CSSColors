@@ -6,7 +6,7 @@ let colorObject = JSON.parse(colorList);
 // This function builds the HTML code of all colored cells based on the JSON file
 for (var key in colorObject) {
     if (colorObject.hasOwnProperty(key)) {
-        let cell = '<div class="color-grid tooltipped col s6 m4 l2 xl1" data-position="bottom" data-tooltip="' + key + '" style="background-color:' + key + '"><p>' + colorObject[key] + '</p></div>'
+        let cell = '<div class="color-grid tooltipped col s6 m4 l2 xl1" data-position="bottom" data-tooltip="' + key + '" style="background-color:' + colorObject[key] + '"><p>' + colorObject[key] + '</p></div>'
         document.getElementById("cells").innerHTML += cell; 
     }
 }
@@ -20,10 +20,18 @@ for (const cell of clickableCell) {
     var copyTextarea = document.querySelector('.js-copytextarea');
     copyTextarea.select();
     document.execCommand('copy');
-    M.toast({html: 'Copied '+ colorCode,  classes: 'rounded'})
+    M.toast({html: colorCode + ' copied!',  classes: 'rounded'})
     });
 }
 
+// Randomize function
+const randomizeButton = document.querySelector('#randomize');
+randomizeButton.addEventListener('click', function(){
+  let colorValues = Object.values(colorObject);
+  let randomColor = colorValues[Math.floor(Math.random()*colorValues.length)];
+  M.toast({html: randomColor + ' copied!',  classes: 'rounded'})
+  });
+  
 // Tooltip for ColorName
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.tooltipped');
