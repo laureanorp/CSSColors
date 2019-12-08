@@ -29,6 +29,10 @@ const randomizeButton = document.querySelector('#randomize');
 randomizeButton.addEventListener('click', function(){
   let colorValues = Object.values(colorObject);
   let randomColor = colorValues[Math.floor(Math.random()*colorValues.length)];
+  document.querySelector('.js-copytextarea').value = randomColor;
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.select();
+  document.execCommand('copy');
   M.toast({html: randomColor + ' copied!',  classes: 'rounded'})
   });
   
