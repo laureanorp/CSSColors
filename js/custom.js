@@ -3,13 +3,21 @@ let colorList ='{ "aliceblue": "#f0f8ff", "antiquewhite": "#faebd7", "aqua": "#0
 
 let colorObject = JSON.parse(colorList);
 
-// This function builds the HTML code of all colored cells based on the JSON file
-for (var key in colorObject) {
-    if (colorObject.hasOwnProperty(key)) {
-        let cell = '<div class="color-grid tooltipped col s6 m4 l2 xl1" data-position="bottom" data-tooltip="' + key + '" style="background-color:' + colorObject[key] + '"><p>' + colorObject[key] + '</p></div>'
-        document.getElementById("cells").innerHTML += cell; 
-    }
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
+
+let shuffledKeys = shuffle(Object.keys(colorObject));
+
+// This function builds the HTML code of all colored cells based on the JSON file
+shuffledKeys.forEach(function (key) {
+  let cell = '<div class="color-grid tooltipped col s6 m4 l2 xl1" data-position="bottom" data-tooltip="' + key + '" style="background-color:' + colorObject[key] + '"><p>' + colorObject[key] + '</p></div>';
+  document.getElementById("cells").innerHTML += cell; 
+});
 
 // Extracts the color code of each cell
 const clickableCell = document.querySelectorAll('.color-grid');
